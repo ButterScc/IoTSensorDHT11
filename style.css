@@ -1,0 +1,212 @@
+/* Mengatur semua elemen */
+* {
+  margin: 0; /* Menghapus jarak luar default */
+  padding: 0; /* Menghapus jarak dalam default */
+  box-sizing: border-box; /* Padding & border masuk ke ukuran elemen */
+  font-family: 'Poppins', sans-serif; /* Mengatur font utama */
+}
+
+/* Mengatur tampilan body utama */
+body {
+  min-height: 100vh; /* Tinggi minimal 1 layar penuh */
+
+  /* Background gradasi warna */
+  background: linear-gradient(
+    -45deg,
+    #4facfe, /* Biru muda */
+    #00f2fe, /* Cyan */
+    #ff4444, /* Merah */
+    #38f9d7  /* Hijau muda */
+  );
+
+  background-size: 400% 400%; /* Ukuran background diperbesar agar animasi smooth */
+  animation: gradientMove 12s ease infinite; /* Menjalankan animasi background */
+
+  display: flex; /* Menggunakan Flexbox */
+  justify-content: center; /* Posisi horizontal di tengah */
+  align-items: center; /* Posisi vertikal di tengah */
+  padding: 20px; /* Jarak dari tepi layar */
+}
+
+/* Animasi background bergerak */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%; /* Posisi awal */
+  }
+
+  50% {
+    background-position: 100% 50%; /* Bergerak ke kanan */
+  }
+
+  100% {
+    background-position: 0% 50%; /* Kembali ke awal */
+  }
+}
+
+/* Kotak utama container */
+.container {
+  width: 100%; /* Lebar penuh */
+  max-width: 1100px; /* Maksimal lebar */
+  background: rgba(255,255,255,0.18); /* Warna transparan putih */
+  backdrop-filter: blur(14px); /* Efek blur kaca */
+  border-radius: 30px; /* Sudut melengkung */
+  padding: 35px; /* Jarak isi ke tepi */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2); /* Bayangan */
+  border: 1px solid rgba(255,255,255,0.3); /* Garis tipis transparan */
+}
+
+/* Bagian header */
+.header {
+  text-align: center; /* Teks rata tengah */
+  margin-bottom: 35px; /* Jarak bawah */
+}
+
+/* Judul utama */
+.header h1 {
+  font-size: 2.5rem; /* Ukuran besar */
+  color: white; /* Warna putih */
+  font-weight: 700; /* Tebal */
+}
+
+/* Subjudul */
+.header p {
+  color: #f8f9fa; /* Putih keabu-abuan */
+  margin-top: 10px; /* Jarak atas */
+  font-size: 1rem; /* Ukuran normal */
+}
+
+/* Area card sensor */
+.cards {
+  display: grid; /* Menggunakan Grid */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* Menyesuaikan jumlah card otomatis */
+
+  gap: 25px; /* Jarak antar card */
+}
+
+/* Card sensor */
+.card {
+  background: rgba(255,255,255,0.25); /* Transparan */
+  border-radius: 25px; /* Sudut melengkung */
+  padding: 30px; /* Jarak isi */
+  text-align: center; /* Tengah */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Bayangan */
+  transition: 0.3s ease; /* Efek hover halus */
+  margin-top: 20px; /* Jarak atas */
+  margin-bottom: 20px; /* Jarak bawah */
+}
+
+/* Efek saat mouse diarahkan */
+.card:hover {
+  transform: translateY(-8px); /* Card naik sedikit */
+}
+
+/* Icon sensor */
+.icon {
+  font-size: 70px; /* Ukuran icon */
+  margin-bottom: 15px; /* Jarak bawah */
+}
+
+/* Warna icon suhu */
+.temp .icon {
+  color: #ff5733;
+}
+
+/* Warna icon kelembapan */
+.humid .icon {
+  color: #0077ff;
+}
+
+/* Judul dalam card */
+.card h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+/* Nilai sensor */
+.value {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+/* Warna nilai suhu */
+.temp .value {
+  color: #ff5733;
+}
+
+/* Warna nilai kelembapan */
+.humid .value {
+  color: #0077ff;
+}
+
+/* Deskripsi kecil */
+.desc {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Footer bawah */
+.footer {
+  margin-top: 35px;
+  text-align: center;
+  color: white;
+  font-size: 0.95rem;
+}
+
+/* Banner cuaca */
+.weather-banner {
+  margin-top: 30px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-size: 1.1rem;
+}
+
+/* Tampilan mobile */
+@media(max-width: 600px) {
+
+  /* Judul diperkecil */
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  /* Nilai sensor diperkecil */
+  .value {
+    font-size: 2.3rem;
+  }
+}
+
+/* Jam digital */
+#clock {
+  font-family: 'DM Mono', monospace; /* Font jam */
+  font-size: 3.2rem; /* Ukuran besar */
+  font-weight: 500; /* Sedikit tebal */
+  letter-spacing: 2px; /* Jarak antar huruf */
+  line-height: 1; /* Tinggi baris */
+  margin-bottom: 6px; /* Jarak bawah */
+  color: #f0ecff; /* Warna putih ungu */
+}
+
+/* Ukuran tambahan jam */
+#clock {
+  font-size: 2.4rem;
+}
+
+/* Tanggal */
+#date-display {
+  font-size: 0.9rem;
+  color: #f0ecff;
+  margin-bottom: 8px;
+}
+
+/* Greeting (Selamat pagi, siang, malam) */
+#greeting {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f0ecff;
+  margin-bottom: 10px;
+}

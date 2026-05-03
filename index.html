@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monitoring Sensor DHT11</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel = "stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>🌡️ Dashboard Sensor DHT11 💧</h1>
+      <p>Monitoring Suhu dan Kelembapan Secara Real-Time</p>
+    </div>
+    <div> </div>
+    <section class="card card--greeting">
+     <div id="clock">00:00:00</div>
+      <div id="date-display">Loading...</div>
+      <div id="greeting">Hello!</div>
+
+      </section>
+
+
+    <div class="cards">
+      <div class="card temp">
+        <div class="icon">🌞</div>
+        <h2>Suhu</h2>
+        <div class="value"><span id="s">...</span> °C</div>
+        <p class="desc">Pemantauan suhu ruangan secara langsung menggunakan sensor DHT11.</p>
+      </div>
+
+      <div class="card humid">
+        <div class="icon">💧</div>
+        <h2>Kelembapan</h2>
+        <div class="value"><span id="h">...</span> %</div>
+        <p class="desc">Monitoring kelembapan udara untuk menjaga kondisi lingkungan.</p>
+      </div>
+    </div>
+
+    <div class="weather-banner">
+      ☁️ Sistem Monitoring IoT untuk Suhu & Kelembapan Berbasis ESP32 + DHT11 ☀️
+    </div>
+
+    <div class="footer">
+      <p>Dibuat untuk proyek monitoring sensor DHT11</p>
+      <br>
+      <p><strong>Nama Kelompok:</strong></p>
+      <p>1. Naufal Alam</p>
+      <p>2. Dionisius Endra Hernando</p>
+      <p>3.  Fadli Rahardiansyah</p>
+      <p>4. Muhammad Kemal Fasha Ramadhan</p>
+    </div>
+  </div>
+
+  <script>
+    setInterval(function () {
+      fetch('/data')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('s').textContent = data.suhu;
+          document.getElementById('h').textContent = data.lembab;
+        })
+        .catch(error => {
+          console.log('Gagal mengambil data:', error);
+        });
+    }, 2000);
+  </script>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
